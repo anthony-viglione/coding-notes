@@ -1,0 +1,783 @@
+DEVMOUNTAIN BASECAMP
+
+Git
+
+
+Git is for managing versions of a file.
+
+Process for a file:
+        Not Yet Staged
+            git add <fileName>          we might add less files than we have ben working on.
+        Staged and Ready to Commit
+            git commit -m "message"
+        Committed
+
+In a folder, run git init to enable git functions.
+Run git status to see what files are in what step of git.
+    Red are untracked.
+    git add <fileName> adds it to the stage where it can be tracked.
+
+    git add .      adds everything in the current folder.
+
+If you forget to put a message with a commit, then retry. Type :q to exit the defualt environment that results, then just commit again.
+
+-git init
+-git add <fileName>
+    -git add . 
+-git status
+-git commit -m "message"
+
+
+
+
+
+GitHub
+
+Is an online repository. A code Hosting platform.
+You can "fork" a repository adn then you have a copy for your own use.
+In github use git clone url to get a copy of a repository or files from github.
+    git push origin master - pushes the file back up to github.
+
+?How are commit, push, and push origin master related or different?
+
+
+
+
+
+Command Line
+
+pwd         present working directory
+ls          list current folder
+cd          change directory, followed by another location will switch to that directory
+cd ..       backs up one level
+clear       wipes typing in the terminal, but doesn't affect anything that had been done.
+cd ../..    backs up two levels
+cd ~        takes you back to the home folder
+            * to jump directly to a distinct directory, type the full location.
+mkdir folderName  creates new directory
+touch fileName    creates new file with
+rm fileName      deletes file
+rm -rf folderName deletes folder and contents
+?What is cd<em>nameofDirectory</em>?
+
+
+
+
+
+Intro to operators
+
+Statement
+    Single line of instructions given to the computer.
+    Results in an action.
+    JavaScript syntax ends with a ";"
+    Example: var = 5;
+Expression
+    Single question asked of the computer.
+    Computer WILL return an answer.
+    JS Syntax does not require a ; at the end of an expression.
+    Example: 5 + 3  the computer will resolve it.
+
+    So, var num = 5 + 3; is a combination of both and the numbers will be evaluated to be stored as 8.
+
+
+
+
+
+Assignment operators
+
+    =, +=, -=, *=, /=, ++, -- 
+    For anything with a = the left side will hold the evalutaion of the right side.
+    num = num + 5   is the same as num += 5
+    num = num + 1   is the same as num ++
+
+increment and decrement have to be before the variable for immediate use. Can be after variable if used later.
+
+
+
+
+
+Comparison Operators
+
+    Evaluate to true or false.
+
+    >, <, >=, <=, ==, ===, !=
+    ===, requires an exact match in terms of numbers, strings, and double or single quotes.
+    Binary Comparison operators. These can evaluate to true or false without hard coding.
+
+    Logical operators. Used perform an ecaluation between two evaluations.
+    && logical and. Requiring that both sides of the operator evaluate to true.
+    || logical or. Requires that at least one side of the operator evaluate to true.
+
+
+
+
+
+Introduction to Conditionals
+
+    If/Then Statements
+        Used in programming to define logic and evaluation.
+        Follow a set pattern.
+            Checks for condition, then performs defined action if an only if condition is met.
+        SYNTAX
+            if(condition){action to perform};
+            additional conditions can be added.
+
+            if(condition){action to perform}
+            else if (condition2){action to perform}
+            else{action to perform};
+
+
+
+
+
+Nested Conditionals
+
+    Flow of Data
+            function addNums (num1, num2){
+                num1+num2
+            };
+            console.log(addNums(5,4));
+        
+        In this case, data has been passed into the function, but nothing has been passed back out. This is acheived through a return statement:
+            function addNums (num1, num2){
+                return num1+num2
+            };
+            console.log(addNums(5,4));
+
+            This would then result in a displayed evaluation.
+
+    You can chain conditionals together for more powerful functions.
+
+
+
+
+
+Intro to Truthy and Falsy
+    
+    In JavaScript, variables have an inherited boolean (true or false) value.
+    There are a few values that are always Falsy.
+        0 as a number. All other positive and negative numbers are truthy.
+        Empty Strings.
+        null - any value declared with the value of null
+        undefined - a blank variable
+        NaN - not a number
+
+    Things that one might think are falsy but are actually truthy
+        '0' as a string
+        [] - an empty array
+        {} - an empty object
+        'false' as a  string
+
+        if(val) questions if val is true or false.
+
+
+
+
+
+Introduction to functions
+
+    There is a difference between calling a function and calling a function.
+    Functions are userdefined keywords that will perform a specific set of actions.
+
+    Defining a function.
+            Start with the function keywrd then name the function.
+            Define the expected inputs in parenthesis.
+            Defne the actions in curly brackets.
+
+            function name(inputs){actions}
+
+            Inputs
+                Inputs act like variables that only apply within the function.
+                You can have multiple if you separate them by commas.
+                Called parameters when the function is defined.
+                Called arguments when the function is called.
+
+
+
+
+
+Basics of JavaScript functions
+    
+    A defined function wont do anything until it is called.
+    Console.log() will only be visible for developing in the console. To chain functions together, they must end with return statements.
+    Return - What a funtion will yield if it is called. Sometimes you can make use of code without returning anything, sometimes it requires it.
+
+
+
+
+
+Scope in JavaScript
+    
+    Scope is the range in which variables can be used.
+        Global Variable: defined outside of the function, accessible anywhere.
+        Local Variable: defined within a funciton, accessible only within that function or children functions.
+        Global variables can be modified within children functions and used in unrelated functions.
+        Global Scope is relative to frame of reference. ie, 
+        Sometimes, scope and the relative globality of a variable can be used to modify variables that originate outside of the 
+                function where they are being modififed, allowing the function to be used without inputs or outputs. No return necessary.
+            var counting = 4;
+            function increment(){
+                 counting++;
+            }
+            increment();
+            console.log(counting);
+        Sibling functions are outside of eachother's scope.
+
+
+
+
+
+Lexical Scope
+    
+    Using Var, the same variable can be declared with different values in children functions. The parent functions wont be affected.
+        If a global var is declared, and then that same var is modified in a function without being newly declared, then the modification will be global.
+        At the same time, if the same var as a global var is declared within a function and then modified within the function, the global will be unchange.
+        Scope is not affected by if and for loops.
+
+    JavaScript is function scoped, meaning scope extends throughout the function.
+    If statements do not create their own scopes -  they are part of the scope where they reside.
+    For loops don't break scope either - including variables defined in the initialization statements (like 'i')
+
+
+
+
+
+Variables - Let
+
+    Keyword Let is able to break lexical scope rules.
+        Applies block scope rules.
+        Means it is only defined within a code block. Functions, if statements, and for loops.
+
+
+
+
+
+Introduction to objects
+
+    Objects are a collection of related variables or information.
+    Stored within a single variable.
+    Includes an index to look up the pieces of information.
+    The values in an object can actually contain more values.
+    Objects contain a series of key:value pairs.
+    The keys are used to get the values.
+        Keys are technically strings.
+
+    Syntax for initialization:
+        var objName = {key:value,key2:value2};
+    
+    Syntax for calling:
+        objName.key >>> value   
+
+
+
+
+
+Introduction to Methods
+
+    Methods are functions.
+        They work the same as regular functions.
+        They are contained in an object.
+
+    Syntax for defining:
+        var objName = {
+            funcName : function(){code},
+        };
+
+    Syntax for calling: 
+        objName.methName (arguments);
+
+
+
+
+
+Introduction to Arrays
+    
+    Arrays are like objects but we eliminate the need for keys.
+    They function more like indexed lists
+
+    Syntax to initialize:
+        var arrayName = [value1, value2];
+    
+    Finding the data
+        Computer automatically tracks order items are added.
+        Each item is assigned a number, starting at zero. This is the index.
+        The index is the key.
+
+    Syntax to Call:
+        array [index]   >>> value
+
+    Writing out     arrayName[index] = value    allows you to acces individaul elements as if they were regular variables.
+
+?What happens if I try adding an element at index 5 to an array that only has 3 elements?
+
+
+
+
+
+Methods on Arrays
+
+    Four common methods for removing elements from arrays.
+        array.pop()
+            pops last element from the array, returns that value, and updates the original array to exlude that element.
+            This is a prototype function. It is not a higher order function and doesn't expect another function.
+        array.shift()
+            removes first element from array and shifts everything over, returns that value, and updates the original array to exlude that element.
+            This is a prototype function. It is not a higher order function and doesn't expect another function.
+        array.splice(startingIndex, elementsToRemove, elementsToAdd)
+            Starts at the index of the 1st parameter, removes the number of elemnts indicated by 2nd parameter, adds the elements listed from 3rd parameter.
+            Updates original array.
+            Returns anything that was removed.
+            This is a prototype function. It is not a higher order function and doesn't expect another function.
+        array.slice(startingIndex, endingIndex)
+            Will return a copy of the indicated slice of the array.
+            No parameter >>> entire array
+            1 parameter >>> starts at that index.
+            2 parameters >>> starts at first parameter and continues to, but excludes, the 2nd.
+            Does not update original array.
+            This is a prototype function. It is not a higher order function and doesn't expect another function.
+
+    More methods on Arrays
+        array.indexOf()
+
+            This is a prototype function. It is not a higher order function and doesn't expect another function.
+            finds the case sensitive element and returns the first occurring index location. Returns -1 if not found.
+        array.forEach(function(val, i, arr){})      or      array.forEach(functionName)
+            works like a for loop that can iterate through the array.
+            val = value.
+            i = index location of said value.
+            arr = the array that is being passed in.
+            
+            Does not return anything.
+            To make use of it, it must affect things that will remain outside of the function, like tha array itself     arr[i] = val   can be used to affect it.
+            Using the Function definition requires defining the function in curly brackets.
+            Call a function instead of defining a function requires only the function name being placed in parenthis    arrayName.forEach(functionName)
+            Higher Order Function; It requires a function.
+        array.map(function(val, i, arr){})      or      array.map(functionName)
+            Transforms an array.
+            Functionally similar to .forEach(), but returns the new array.
+            Each iteration creates a new element in the new array with the value returned by the callback.
+                It will run the function you wrote in for each element in the inputted array, yielding a new array composed of the new elements.
+            Higher Order Function; It requires a function.
+        array.filter(function(val,i,arr){})      or      array.filter(functionName)
+            The function we give the filter should return true or false.
+            Returns a new array comprised of the elements that have passed the test in the function.
+            Each iteration runs the function as a test on a subsequent element of the input array.
+            Uses a function to determine if the piece of array passes a test, using comparison operators.
+            Does not modify the original array.
+            Higher Order Function; It requires a function.
+
+
+
+
+
+Intro to loops
+
+    For loops  
+        Have 4 parts:
+            1. An initial statement
+            2. A condition for continuing the loops
+            3. An incrementing Statement
+            4. The action to be performed
+
+            Parts 2-4 will cycle until the condition is broken.
+        Syntax:
+            for(initial; condition; increment){action};
+
+            You can Hard code the condition to make it iterate a fixed number of times, or you can use a variable to cause it to iterate relative to the context.
+
+
+    Iterating Through an Array
+        The number of loops is the number of items in the array.
+        Each loop will use or modify the info in the array.
+        Nothing but the action to be performed is hard-coded.
+
+        Important to remember that array indexes start at zero.
+        Use either the array length starting at zero, or the array length plus one if starting at one.
+
+        array.length    >>>     returns the number of items in the array
+
+        What is a for in loop? Iterating Loops ConsoleVid   for (i in obj)
+
+    
+    Iterating Through an object
+        For...in loop
+            for (i in objName){action};
+                refers to the number of properties within the object.
+                i acts as a placeholder for key of current property.
+            
+                Syntax for accessing properties:
+                    objName[key]    >>  value
+
+    
+
+
+
+Arrow Functions
+
+    Introduced with ES6 aka Javascript 2015
+    Concept:    (x) => x+2
+        With arrow: ()=>7;      Without arrow   function(){return7;}
+        Arrow functions automatically return the value on the right, unless you use curly braces.
+            If you use curly braces, then you need a return statement.
+        If there is only one parameter, you don't need the parenthesis.
+    Naming
+        Start with      var myFunctionName =    and then write the arrow function.
+
+
+
+
+
+Manipulating Strings
+
+    string.charAt(index)
+        Returns a new string consisting of the single character located at that string location of the indicated string.
+        Strings are indexed like arrays, starting at zero.
+        Input index hould be from zero up to one less than the string length.
+
+
+
+
+
+More Methods on Arrays
+
+    array.reduce((){},);      https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
+        Executes a reducer function that converts an array into a single value based on the function you give it.
+            Is fed four parameters:
+                1 accumulator (acc)     Acumulates the values previously returned, or starts at initialValue if supplied.
+                2 currentValue (cur)    Current element being processed.
+                3 currentIndex (idx)    [optional]Index of the current element being processed in the array. Starts at 0 if initialValue is supplied, 1 otherwise.
+                4 array (src)           [optional]The array reduce was called on.
+        The returned value is assigned to the accumulator, whose value is remembered across each iteration throughout the array and ultimately becomes the final result.
+
+        Function Example    
+            arrayName.reduce(function(accumulator,currentValue,currentIndex,array){
+                return accumulator ACTION currentValue;
+            },initialValue);
+
+
+
+
+
+Overview-2
+
+    setTimeout(functionName,numOfMilisecondsToDelay)
+    Callbacks are functions that pass in other functions.
+        Should call it as well.
+            function takesACallback(callback){
+                callback();
+            }
+
+    Number(string)      https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+        this example will convert a string to a number.
+
+    typeof              https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
+        returns the type of the subsequent operand.
+
+    Math.floor
+        
+
+
+
+
+Using Callbacks later
+
+    setTimeout(function(){
+        console.log("I'm done!");
+    },1000);
+        This piece of code logs "I'm done", but it only executes that after 1000 miliseconds.
+
+    When having to pull information from the internet it is very common to use callbacks to delay the rest of the code.
+        getStuffFromTheInternet(function(stuffFromInternet){
+            results=stuffFromInternet;
+        });
+
+
+
+
+
+Higher Order Functions
+
+    Using Callbacks you can chain functions together to create higher order functions.
+        Certain pieces are their own functions.
+
+
+
+
+
+Intro to Classes
+
+    Could be called "syntax sugar for constructor functions"
+    Regular constructor functions can't be invoked without using the keywords
+
+    class ClassName {
+        constructor(layers){
+            this.layers = layers;
+            this.otherThing = somethingElse;
+        }
+
+        additionalFunction(){           // this generates a prototype function for className. Invokable by  className.additionalFunction()
+            this.cosa--;
+        }
+    }
+
+    Constructor is the entry point.
+    Need to be using    this
+    The elements that read      this.whatever   are what will serve as variables. Be sure to call them with that Syntax.
+    The prototype functions within the class are sometimes referred to as methods.
+    You can create new members of the class with        var somethingNew = new ClassName(properties)
+
+
+
+
+
+Node
+
+    Node is the V8 engine that runs in Chrome to run Javascript, but is runnable outside of the browser.
+
+    Going to be used for deveelopment tools on our computer.
+    Also, making our own web servers.
+
+
+
+
+
+Npm
+
+    Npm is a tool that allows us to grab code from other developers.
+        var myCode =require('./myCode.js');
+    Npm is a repository of javascript files and libraries.
+        files that come from npm do not need the    ./  in front
+            var angular = require('angular');
+    NPM stands for Node Package Manager
+        It does the work of making sure we have the right hierarchy tree of dependencies for things we try to bring in and use.
+
+
+
+
+
+package.json file
+
+    The key file used by NPM
+    Helps remember important info. You can put this on github instead of pushing a whole library.
+    Created by typing   npm init
+    package.json is a file that tracks basic information about a project, including dependencies and versions. 
+            Created using npm init in the command line.
+
+
+
+
+
+npm install [package]
+
+    Attempting to install something might return an error saying to run the command as root/administrator
+        read this for help: https://docs.npmjs.com/getting-started/fixing-npm-permissions
+        start with the command sudo
+            sudo npm install packageName
+    In the JS script. Example with importing react
+        Front end:
+            import react from 'react';
+        in Node.js
+            var react = require('react');
+    Packages on npm never have spaces, so you can make a list of things to download with spaces and get the whole list.
+    You can avoid committing pieces of code going to github.
+        In project create a file called .gitignore
+            List out anything you want git to ignore.
+            Do this before you do git add.
+    Hook other files into your code
+        src=".fullPath"
+        Not necessary with a lot of modern build tools.
+    npm install --save [package]
+        Written after npm install.
+        Opens package.json finds the section marked dependencies and adds an entry for you.
+            Means that the file acts as a list for the things you install
+                You can then type   npm install     without anything else and by default it will find that list and install everything.
+    Your .json file is something that others will be able to find on github to then download the neeeded pieces. and the most current versions as well.
+    npm install [package] -g  
+        works like install but puts it in a global location and makes it useable by the terminal later.
+        usually used by tools
+
+    Difference between Node and Npm 
+        Node is a runtime environment, or something that will execute your JavaScript code.
+        Npm is a repository for packages, or code from other developers, that allows you to easily use code to speed up your deveelopment process.
+
+
+
+
+
+Import & Export
+
+    Jquery is a fast, small, and feature-rich JavaScript library.
+    Import and export let you use code between files.
+    export default
+        When this file is imported, give this by default.
+    import something from '.filePath'
+        works if in same directory.
+        yields default of from file
+    import {something} from '.filePath'
+        will bring something specific that isn't the default.
+
+
+
+
+
+React
+
+    JavaScript library developed by Facebook used for building user interfaces. ie what the user of the app will see.
+    Component Based. -> It is broken down into small pieces that work together.
+    If coming from coding background, read this so it makes more sense: https://reactjs.org/docs/thinking-in-react.html
+    Can be difficult to set up, so we use the tool      create-react-app app-name       in a terminal
+
+
+
+
+
+Create React App
+
+    need node and npm
+        check by typing node -v and npm -v in the terminal
+    tool is open source and found on github through facebookincubator/create-react-app
+    recommended tool when learning how to do react.
+    tool doesn't assume node backend, so you need to change some things.
+    
+
+
+
+
+HTML and Classes
+
+    Specificity
+        Rules the browser uses to determine which styles are applied when there is a conflict.
+        Uses a point system.
+        Mores specific gets more points:
+            Inline Styling (attribute on HTML)      [1000pts]
+            id                                      [100pts]
+            class, pseudo-class, attribute          [10pts]
+            elements                                [1pt]
+    
+    DRY and Classes
+        Dont Repeat Yourself (DRY)
+            Consolidate repeated code.
+            Keep important things in as few places as possible.
+        Use classes to style many elements at once.
+        Style as generally as you can, then make any adjustments to more specific selections.
+        Semantic HTML can help you name elements more intuitively and have fewer class overlaps.
+
+    Reset CSS
+        Different browsers start at different point so some browsers appear differently from the same code.
+        Coders create a file called reset.css or normalize.css to specifically redesign how things look in every browser.
+            Normalize hardstyles to make it look the same.
+            Reset removes all styling.
+
+    Meta Tags
+        Give overall information for your site; used by search engines to search and display.
+            charset
+                <meta charset="UTF-8">
+                Describes the character sets used in your site; English should be UTF-8
+            description
+                <meta name="description" content="The best website ever.">
+                Description of the site
+            keywords
+                <meta name="keywords" content="Unicorns, Tanks, Edgar Allen Poe">
+                indexed and saved by search engines to help users find your site
+                what is used in SEO
+            author
+                <meta name="author" content="Gregory Talbot">
+                Author of site. For attribution
+            viewport
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                for use with different devices to make sure that it displays properly.
+
+    Display Property
+        CSS property.
+            div {
+                display: property;
+            }
+            block
+                Each element will be put on its own line; default display for most elements.
+            inline
+                Element will not be put on a new line; they will only take as much width as needed.
+                Elements can't have their own height and width.
+            inline-block
+                Element will not be put on its own line, but can have its own height and width.
+
+    Text Properties
+        h1{
+            font-size: 3rem;
+            color: #333;
+            line-height: 2em;
+            text-alignment: right;
+            font-family: 'Helvetica', sans-serif;
+            letter-spacing: .25rem;
+        }
+        font size- can be used with em, px, h1, vh, or others
+        color- can use color names, hex codes, or rgb(val,val,val)
+        line-height- like font size
+        text-alignment- default is left.
+        font- depends on libraries
+        letter-spacing- space between letters.
+
+    Background property.
+        div{
+            background-image: url('http://pics.com/puppy');     you can link to a local or remote image
+            background-size cover;      cover: shows just enough picture to cover the element   contain: show the whole image; it may not cover
+            background-position: top center;        you can adjust the position of the background to show the parts of the image you want.
+            repeat: no-repeat;      whether the image repeats over white space; default is repeat.
+        }
+        article{
+            background-color:#fefefe;       You can also choose a color to be the background of an element.
+        }
+
+    Width and Height Property
+        px: screen pixels.
+        vh: percent of view height.
+        vw: percent of view Width.
+        %: percent of parent element.
+        em: font size of current element. notation for width of the letter m in default browser.
+        rem: font size of root element.
+        min: the minimum size allowed.
+        max: the maximum size allowed.
+
+    CSS Box Model
+        Has four layers.
+            Margin      Presses outward around element.
+                Border      Within element.
+                    Padding     Within element.
+                        Content     Within element.
+
+    Margin, Border, and Padding
+        You can modify these through a class.
+        .main-article{
+            border: 10px red dotted;    the border property allows you to define thickness, color, and style.
+            padding-left: 10px;         you can define the padding, margin, and border for each side individually.
+            margin: 10px                you can use shorthand to define all four sides at once.
+            }
+
+    CSS Selectors
+        div,.class-name{}
+            to select all elements with a class name, use a period followed by the class name.
+            to select all of one type of element, simply list the tag name.
+            to use a multiple selectors, separate with commas.
+        #id-name header{}
+            to select an element by its id, use a hash and the id
+            you can select elements inside of a selection by separating with a space.
+
+    Other CSS Selectors
+        Direct child
+            div > p {}      searches a direct child p tag. 1 layer deeper.
+        li:nth-child(){}    sudo selector. looks for all the (li) tags that are the() child. 2n + 1 would be every two, but start with the first.
+        input[type="text"]; selects the input elements of the property indicated in brackets.
+        hover               sudo selector that reacts to the user hovering over the element.
+        ::                  sudo elements let you modify specific areas of elements
+
+
+
+
+
+        
+
+
+
+
+
+
+
